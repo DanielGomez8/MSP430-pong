@@ -1,0 +1,12 @@
+	.file updateState.c
+	.text
+	.global updateState
+	
+updateState:
+	cmp #0, &currentState
+	jnz over
+	call onPlayingState()
+	jmp end
+over:	call onGameOverState()
+end:	pop r0
+	

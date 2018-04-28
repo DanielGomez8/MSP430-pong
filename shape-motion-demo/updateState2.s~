@@ -1,0 +1,12 @@
+	.text
+	.file"shapeMotion.c"
+	extern onPlayingState
+	extern onGameoverState
+	.global updateState
+updateState:
+	cmp 0 , &current_state
+	jnz over
+	call onPlayingState
+	jmp end
+over:	call onGameoverState
+end:	 pop r0
